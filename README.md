@@ -80,9 +80,9 @@ python3 -m compileall -q src tests
 PYTHONPATH=src python3 -m vpn_keeper.cli --config examples/config.toml validate
 ```
 
-测试使用 mock 与本地假进程，不调用真实 VPN、修改路由或读取真实密码。CI 示例覆盖 Python 3.11–3.13；仓库内 CI 配置尚未在远端执行。见 TESTING.md。
+测试使用 mock 与本地假进程，不调用真实 VPN、修改路由或读取真实密码。CI 示例覆盖 Python 3.11–3.13；具体运行结果请查看仓库 Actions。见 TESTING.md。
 
 
 ## 贡献与安全
 
-开发流程见 [CONTRIBUTING.md](CONTRIBUTING.md)，变更记录见 [CHANGELOG.md](CHANGELOG.md)。安全报告要求与清理边界见 [SECURITY.md](SECURITY.md)。私密安全联系渠道尚未指定，请勿在公开 issue 中披露漏洞或认证材料。本实现采用 [MIT 许可证](LICENSE)，版权署名为 `2026 xchen-zhao`；发布前仍需确认权属，外部依赖继续遵守各自许可证。
+开发流程见 [CONTRIBUTING.md](CONTRIBUTING.md)，变更记录见 [CHANGELOG.md](CHANGELOG.md)。安全报告要求与清理边界见 [SECURITY.md](SECURITY.md)。已启用 GitHub 私密漏洞报告，请从仓库 Security → Advisories 提交；请勿在公开 issue 中披露漏洞或认证材料。本实现采用 [MIT 许可证](LICENSE)，版权署名为 `2026 xchen-zhao`；发布前仍需确认权属，外部依赖继续遵守各自许可证。
