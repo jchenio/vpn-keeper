@@ -1,0 +1,25 @@
+[Unit]
+Description=VPN Keeper - single-password OpenConnect supervisor
+Wants=network-online.target
+After=network-online.target
+
+[Service]
+Type=simple
+User=root
+UMask=0077
+RuntimeDirectory=vpn-keeper
+RuntimeDirectoryMode=0700
+ExecStart=/opt/vpn-keeper/.venv/bin/vpn-keeper --config /etc/vpn-keeper/config.toml --state-dir /run/vpn-keeper run
+# No systemd restart loop: respect the supervisor's authentication failure budget.
+Restart=no
+KillMode=mixed
+# Health probes notice stop within 0.1s under normal scheduling; group cleanup
+# allows 10s for scripts. Leave margin before the cgroup-wide final SIGKILL.
+TimeoutStopSec=30
+PrivateTmp=true
+ProtectHome=true
+# vpnc-script may update /etc/resolv.conf; do not make /etc read-only.
+# Add host-specific hardening only after validating DNS setup and restoration.
+
+[Install]
+WantedBy=multi-user.target

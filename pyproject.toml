@@ -1,0 +1,28 @@
+[build-system]
+requires = ["setuptools>=77"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "vpn-keeper"
+version = "0.1.0"
+description = "VPN Keeper: a small Linux OpenConnect supervisor for single-password VPNs"
+readme = "README.md"
+keywords = ["vpn", "openconnect", "linux"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Environment :: Console",
+    "Operating System :: POSIX :: Linux",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3 :: Only",
+    "Topic :: System :: Networking",
+]
+requires-python = ">=3.11"
+license = "MIT"
+license-files = ["LICENSE"]
+dependencies = []
+
+[project.scripts]
+vpn-keeper = "vpn_keeper.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]

@@ -1,0 +1,20 @@
+[vpn]
+server = "https://vpn.example.com"
+username = "example-user"
+group = ""
+interface = "vpnk0"
+password_file = "/etc/vpn-keeper/password"
+vpnc_script = "/usr/share/vpnc-scripts/vpnc-script"
+# Empty routes: use the standard vpnc-script and server-provided routes/DNS.
+# Nonempty routes: vpn-slice handles only these CIDRs (install separately).
+routes = []
+# Example: routes = ["192.0.2.0/24", "2001:db8::/64"]
+# Optional IP reachable through VPN; ICMP must be allowed. Bound to interface.
+health_target = ""
+interval = 15
+startup_timeout = 60
+failure_threshold = 3
+retry_initial = 5
+retry_max = 120
+max_failures = 5
+stable_after = 300

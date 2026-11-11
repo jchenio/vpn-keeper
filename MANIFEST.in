@@ -1,0 +1,4 @@
+include README.md SECURITY.md TESTING.md CONTRIBUTING.md CHANGELOG.md LICENSE-REVIEW.md
+recursive-include examples *.toml
+recursive-include systemd *.service
+recursive-include tests *.py
